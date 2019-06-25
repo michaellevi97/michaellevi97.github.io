@@ -1,0 +1,24 @@
+{
+  "name": "Currency Exchange",
+  "short_name": "Currency",
+  "start_url": "calc.html",
+  "scope": ".",
+  "display": "standalone",
+  "icons":[
+    {
+      "src":"ico1.png",
+      "type":"image/png",
+      "sizes":"144x144"
+    },
+    {
+      "src":"ico2.png",
+      "type":"image/png",
+      "sizes":"128x128"
+    }
+  ],
+  "orientation": "portrait-primary",
+  "background_color": "#fff",
+  "description": "A simple Instagram Clone, implementing a lot of PWA love.",
+  "dir": "ltr",
+  "lang": "en-US"
+}

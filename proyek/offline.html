@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link rel="manifest" href="manifest.json">
+	<title>PROYEK</title>
+
+	<script>
+		const ul = document.getElementById('negara');
+		const url = 'http://data.fixer.io/api/2013-12-24?access_key=b523a8039755e42bdc8de97cb9399556';
+		var hasil='<div class="flex-container">';
+		fetch(url)
+		.then((resp) => resp.json())
+		.then(function(data) {
+			let rate = data.rates;
+			var counter=0;
+			var berita=document.getElementById('berita');
+
+			for (var key in rate) {
+				berita.innerHTML+=key+' : '+rate[key]+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+				if(counter==50)
+					break;
+				else{
+
+					if (key=='AED') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="arab.jpg"><h4>UE Arab</h4><div id="box'+counter+'" class="box"><img src="aed.png"></a></a></div><div>'+
+						rate[key]+' AED</div></a></div><br><br>	';
+						console.log(key);
+					}else if (key=='AFN') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="afghanistan.jpg"><h4>Afghanistan</h4><div id="box'+counter+'" class="box"><img src="afn.png"></a></div><div>'+
+						rate[key]+' AFN</div></div>';
+						console.log(key);
+					}else if (key=='ALL') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="albania.jpg"><h4>Albania</h4><div id="box'+counter+'" class="box"><img src="all.png"></a></div><div>'+
+						rate[key]+' ALL</div></div>';
+						console.log(key);
+					}else if (key=='AMD') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="armenia.jpg"><h4>Armenia</h4><div id="box'+counter+'" class="box"><img src="amd.png"></a></div><div>'+
+						rate[key]+' AMD</div></div>';
+						console.log(key);
+					}else if (key=='ANG') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="netherland.jpg"><h4>Netherland</h4><div id="box'+counter+'" class="box"><img src="ang.png"></a></div><div>'+
+						rate[key]+' ANG</div></div>';
+					}else if (key=='AOA') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="angola.jpg"><h4>Angola</h4><div id="box'+counter+'" class="box"><img src="aoa.png"></a></div><div>'+
+						rate[key]+' AOA</div></div>';
+					}else if (key=='ARS') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="argentina.jpg"><h4>Argentina</h4><div id="box'+counter+'" class="box"><img src="ars.png"></a></div><div>'+
+						rate[key]+' ARS</div></div>';
+					}else if (key=='AUD') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="australia.jpg"><h4>Australia</h4><div id="box'+counter+'" class="box"><img src="aud.png"></a></div><div>'+
+						rate[key]+' AUD</div></div>';
+					}
+					else if (key=='AWG') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="aruba.jpg"><h4>Aruba</h4><div id="box'+counter+'" class="box"><img src="awg.png"></a></div><div>'+
+						rate[key]+' AWG</div></div>';
+					}
+					else if (key=='AZN') {
+						hasil+=
+						'<div class="luar"><a target="_blank" href="azerbaijan.jpg"><h4>Azerbaijan</h4><div id="box'+counter+'" class="box"><img src="azn.png"></a></div><div>'+
+						rate[key]+' AZN</div></div>';
+					}
+					
+				}
+				counter++;
+
+			}
+			hasil+='</div>';
+			document.getElementById('negara').innerHTML = hasil;
+		})
+
+		.catch(function(error) {
+			console.log(error)
+		});
+	</script>
+	<style>
+		.luar{
+			transition-duration: 0.2s;
+			text-align: center; 
+			margin-left:100px;
+			margin-right:100px;
+			margin-top:20px;
+			margin-bottom: 30px;
+			
+		}
+
+		.luar:hover{
+			transition-duration: 0.2s;
+			transform: scale(1.5);
+		}
+
+		.bottom{
+			height: 10vh;
+			bottom: 0px;
+			background:#333;
+			color:#fff;
+		}
+		.bot{
+			font-family: arial;
+			font-size: 20px;
+			text-align: center;
+			vertical-align: center;
+		}
+		.box{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			margin: 1%;
+			float: left;
+			justify-content: center;
+			align-content: center;
+
+			/*background-color: green;
+			border:solid;
+			border-width: 1px;
+			height: 100px;
+			width: 30%;
+			*/
+		}
+		@media only screen and (min-width: 1024px){
+			.flex-container{
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				height: 70%;
+				width: 90%;
+				margin: auto;
+				align-items: center;
+			}
+		}
+		@media only screen and (max-width: 1023px){
+			.flex-container{
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				height: 70%;
+				width: 90%;
+				margin: auto;
+				align-items: center;
+			}
+		}
+		@media only screen and (max-width: 767px){
+			.flex-container{
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				height: 70%;
+				width: 90%;
+				margin: auto;
+				align-items: center;
+			}
+		}
+		@media only screen and (max-width: 480px) {
+			.flex-container{
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				height: 70%;
+				width: 90%;
+				margin: auto;
+				align-items: center;
+			}
+		}
+		input:focus {
+			outline: 3px solid orange;
+		}
+
+		input:hover {
+			background: #c0ffee;
+		}
+
+
+		/*button:focus {
+			outline: 3px solid orange;
+		}
+
+		button:hover {
+			background: #c0ffee;
+		}*/
+		/*:hover, :focus {
+			background: #c0ffee;
+			}*/
+
+
+
+			.s {
+				background-color: #222222;
+				color: white;
+			}
+			.ss {
+				background-color: white;
+				color: black;
+			}
+
+		</style>
+	</head>
+	<body id="page">
+		<div class="">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="kalkulator.html">Exchange Calculator</a>
+					</li>
+					
+				</ul>
+				<button style="float: right;" id="dark" type="button" class="btn btn-light" onclick="modeSwitch()" tabindex="0">Contrast</button>
+
+			</nav>
+			<marquee scrollamount="15"><h4 id="berita"></h4></marquee>
+			<div class = "container-fluid">
+				<div class="row">
+					<div id="negara" class="box col-md-12" style="flex-direction: row; flex-wrap: wrap; justify-content: center;	">
+					</div>
+				</div>
+
+				
+			</div>
+			<div class="bottom fixed-bottom">
+				<p class="bot mt-4">Welly Tedja Kusuma - Efren Wilson Tanamal - Michael Levi</p>
+			</div>
+		</div>
+
+		<script>
+			function act() {
+				document.getElementById("n").focus();
+			}
+			function modeSwitch() {
+				document.getElementById("page").classList.toggle("s");
+				//alert("Switched To Dark Mode");
+
+			// var x = document.getElementById("dark");
+			// var y = document.getElementById("light");
+		 //  	if (x.style.display === "none" && y.style.display === "block") {
+		 //    	x.style.display = "block";
+		 //    	y.style.display = "none";
+		 //  	} 
+		 //  	else {
+		 //  		x.style.display = "none";
+		 //  		y.style.display = "block";
+		 //  	}
+
+		}
+
+		function modeSwitch2() {
+			document.getElementById("page").classList.toggle("ss");
+			// var x = document.getElementById("dark");
+			// var y = document.getElementById("light");
+		 //  	if (y.style.display === "none" && x.style.display === "block") {
+		 //    	y.style.display = "block";
+		 //    	x.style.display = "none";
+		 //  	} 
+		 //  	else {
+		 //  		y.style.display = "none";
+		 //  		x.style.display = "block";
+		 //  	}
+
+
+		}
+
+
+		function moveit() {
+			var a = document.getElementById("r").value;
+			document.getElementById("vals").innerHTML = a;
+		}
+		function b() {
+			alert("button clicked");
+		}
+
+	</script>
+</body>
+<script src="src/js/app.js">
+</script>
+</html>
